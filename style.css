@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  background: #071426;
+}
+
+.scene {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.earth {
+  background: linear-gradient(#63b8ee, #0b2847);
+}
+
+.launch {
+  background: linear-gradient(#0b2847, #090d25);
+}
+
+.moon {
+  background: linear-gradient(#090d25, #252941);
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+
+  text-align: center;
+  letter-spacing: 40px;
+}
+
+.far-stars {
+  top: 18%;
+  z-index: 1;
+  font-size: 55px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.near-stars {
+  top: 70%;
+  z-index: 2;
+  font-size: 38px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.image-layer {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  text-align: center;
+}
+
+.space-image {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+.earth-layer,
+.moon-layer {
+  top: 8%;
+}
+
+.earth-image,
+.moon-image {
+  width: 180px;
+  animation: planet-float 2.5s ease-in-out infinite alternate;
+}
+
+.rocket-layer {
+  top: 55%;
+}
+
+.rocket-image {
+  width: 90px;
+  animation: rocket-float 0.8s ease-in-out infinite alternate;
+}
+
+.card {
+  position: relative;
+  z-index: 3;
+
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 16px;
+
+  text-align: center;
+  background: rgba(5, 12, 30, 0.75);
+}
+
+h1,
+h2 {
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 55px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.scroll-text {
+  margin-top: 20px;
+  font-size: 30px;
+  animation: arrow-move 0.7s ease-in-out infinite alternate;
+}
+
+.content {
+  min-height: 60vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 60px;
+  text-align: center;
+  color: #25354d;
+  background: #eef6ff;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes planet-float {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(15px);
+  }
+}
+
+@keyframes rocket-float {
+  from {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  to {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes arrow-move {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(10px);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    margin: 20px;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  .content {
+    padding: 30px;
+  }
+}
